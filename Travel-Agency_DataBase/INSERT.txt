@@ -1,0 +1,335 @@
+INSERT INTO branch VALUES
+(0,'Korinthou','8','Patras'),
+(0,'Ermou','25','Athens'),
+(0,'Kanari','68','Trikala')
+(0,'Zerva','18','Volos');
+
+INSERT INTO phones VALUES
+(1,2610322555),
+(1,6978562310),
+(1,6981452374),
+(1,6932178659),
+(1,6985103020),
+(2,2107779999),
+(2,6984561322),
+(2,6945037891),
+(2,6974012358),
+(2,6985203476),
+(3,2421023944),
+(3,6972123007),
+(3,6975869312),
+(3,6974866523),
+(3,6981023457),
+(4,2421350226),
+(4,6932145078),
+(4,6941235870),
+(4,6985203147),
+(4,6978521460);
+
+
+INSERT INTO worker VALUES
+('AK 653215','Caitlyn','Tate',1000,1,'ADMIN'),
+('AK 362587','Trey', 'Eaton',1000,1,'ADMIN'),
+('AK 479821','Alvaro','Russell',1000,1,'ADMIN'),
+('AK 541369','Mckenna','Waller',1200,1,'GUIDE'),
+('AK 121314','Javier','Forbes',1200,1,'GUIDE'),
+('AK 151617','Hadassah','Finley',1300,1,'DRIVER'),
+('AK 212223','Reginald','Roberts',1300,1,'DRIVER'),
+('AK 313233','Gunnar','Hebert',1300,1,'DRIVER'),
+('AK 414243','Mckinley','Mendez',1000,2,'ADMIN'),
+('AK 454647','Scarlett','Berger',1000,2,'ADMIN'),
+('AK 847231','Moshe','Abbott',1000,2,'ADMIN'),
+('AK 475100','Melanie','Merritt',1200,2,'GUIDE'),
+('AK 100030','Jaime','Rosales',1200,2,'GUIDE'),
+('AK 717273','Maximillian','Holden',1300,2,'DRIVER'),
+('AK 546566','April','Cantrell',1300,2,'DRIVER'),
+('AK 963630','Aurora','Hensley',1300,2,'DRIVER'),
+('AK 471440','Sarai','Diaz',1000,3,'ADMIN'),
+('AK 855852','Yadiel','Bowers',1000,3,'ADMIN'),
+('AK 122132','Bella','Li',1000,3,'ADMIN'),
+('AK 655647','Guadalupe','Gregory',1200,3,'GUIDE'),
+('AK 753537','Mya','Krueger',1200,3,'GUIDE'),
+('AK 001215','Itzel','Moyer',1300,3,'DRIVER'),
+('AK 047587','Thalia', 'Hernandez',1300,3,'DRIVER'),
+('AK 479890','Myla','Craig',1300,3,'DRIVER'),
+('AK 545474','Jazmine','Alvarez',1000,4,'ADMIN'),
+('AK 121479','Tristin','Banks',1000,4,'ADMIN'),
+('AK 151000','Aliyah','Holmes',1000,4,'ADMIN'),
+('AK 000223','Joselyn','Curtis',1200,4,'GUIDE'),
+('AK 311253','Harper','Walters',1200,4,'GUIDE'),
+('AK 603243','Augustus','Kent',1300,4,'DRIVER'),
+('AK 890247','Gaige','Compton',1300,4,'DRIVER'),
+('AK 454798','Gaige','Compton',1300,4,'DRIVER');
+
+INSERT INTO admin VALUES
+('AK 653215','LOGISTICS','ADMINISTRATIVE SCIENCE AND TECHNOLOGY'),
+('AK 362587','ACCOUNTING','FINANCE'),
+('AK 479821','ADMINISTRATIVE','BUSINESS MANAGEMENT'),
+
+('AK 414243','LOGISTICS','ADMINISTRATIVE SCIENCE AND TECHNOLOGY'),
+('AK 454647','ACCOUNTING','FINANCE'),
+('AK 847231','ADMINISTRATIVE','BUSINESS MANAGEMENT'),
+
+('AK 471440','LOGISTICS','ADMINISTRATIVE SCIENCE AND TECHNOLOGY'),
+('AK 855852','ACCOUNTING','FINANCE'),
+('AK 122132','ADMINISTRATIVE','BUSINESS MANAGEMENT'),
+
+('AK 545474','LOGISTICS','ADMINISTRATIVE SCIENCE AND TECHNOLOGY'),
+('AK 121479','ACCOUNTING','FINANCE'),
+('AK 151000','ADMINISTRATIVE','BUSINESS MANAGEMENT');
+
+
+INSERT INTO manages VALUES
+('AK 653215',1),
+('AK 847231',2),
+('AK 122132',3),
+('AK 151000',4);
+
+INSERT INTO driver VALUES
+('AK 151617','A','ABROAD',25),
+('AK 212223','B','ABROAD',15),
+('AK 313233','C','LOCAL',9),
+
+('AK 717273','B','ABROAD',15),
+('AK 546566','D','LOCAL',30),
+('AK 963630','A','ABROAD',5),
+
+('AK 001215','C','ABROAD',12),
+('AK 047587','A','LOCAL',24),
+('AK 479890','A','ABROAD',8),
+
+('AK 603243','B','ABROAD',14),
+('AK 890247','B','LOCAL',4),
+('AK 454798','A','ABROAD',36);
+
+INSERT INTO IT (IT_AT,IT_start_date,IT_end_date) VALUES
+('AK 569994','2017-01-26','2020-02-06'),
+('AK 999995','2015-04-26','2016-08-06'),
+('AK 389632','2010-02-26','2012-08-01'),
+('AK 001478','2021-08-26','2022-07-26'),
+('AK 123095','2005-10-26','2007-04-06'),
+('AK 121027','2018-01-26','2021-05-10'),
+('AK 786495','2021-08-12','2022-12-04'),
+('AK 125895','2001-11-06','2003-03-16'),
+('AK 125795','2014-04-01','2018-12-26'),
+('AK 127890','2017-03-12','2019-09-28'),
+('AK 236595','2019-10-26','2021-12-06'),
+('AK 002395','2006-06-06','2007-07-07'),
+('AK 987654','2016-01-04','2019-06-17'),
+('AK 147895','2014-04-24','2020-02-16'),
+('AK 157898','2015-05-10','2016-10-28'),
+('AK 169894','2016-01-26','2019-09-01'),
+('AK 789525','2022-01-26','2023-05-15'),
+('AK 589304','2020-11-15','2022-08-24');
+
+INSERT INTO IT (IT_AT,IT_password,IT_start_date) VALUES
+('AK 555555','kwdikos1','2022-01-06'),
+('AK 444444','kwdikos2','2023-04-14');
+
+
+INSERT INTO guide VALUES
+
+('AK 541369','ABCDEFG'),
+('AK 121314','ABCDEFG'),
+('AK 475100','ABCDEFG'),
+('AK 100030','ABCDEFG'),
+('AK 655647','ABCDEFG'),
+('AK 753537','ABCDEFG'),
+('AK 000223','ABCDEFG'),
+('AK 311253','ABCDEFG');
+
+
+
+INSERT INTO languages VALUES
+
+('AK 541369','English,Italian,German'),
+('AK 121314','Spanish,English,Ukrainian'),
+
+('AK 475100','English,Italian'),
+('AK 100030','Chinese,Korean'),
+
+
+('AK 655647','Russian,English'),
+('AK 753537','Portuguese'),
+
+('AK 000223','French,English'),
+('AK 311253','German,Finnish,Dutch');
+
+
+INSERT INTO trip VALUES
+(NULL,'2024-05-05 03:00:00','2024-05-10 03:00:00',52,521,1,'AK 541369','AK 151617'),
+(NULL,'2024-02-10 04:00:00','2024-02-12 04:00:00',60,158,1,'AK 121314','AK 212223'),
+(NULL,'2024-01-02 07:00:00','2024-01-10 12:00:00',120,500,1,'AK 121314','AK 151617'),
+(NULL,'2023-11-25 08:00:00','2023-11-30 04:00:00',30,1000,1,'AK 121314','AK 212223'),
+(NULL,'2023-12-25 11:00:00','2024-01-03 04:00:00',40,687,1,'AK 541369','AK 313233'),
+(NULL,'2024-01-04 22:00:00','2024-01-10 03:00:00',52,522,2,'AK 475100','AK 717273'),
+(NULL,'2023-10-21 09:00:00','2023-10-29 04:00:00',60,155,2,'AK 100030','AK 546566'),
+(NULL,'2023-11-01 08:00:00','2023-11-08 12:00:00',120,555,2,'AK 475100','AK 963630'),
+(NULL,'2023-12-05 07:00:00','2023-12-10 04:00:00',30,1111,2,'AK 100030','AK 717273'),
+(NULL,'2024-01-10 21:00:00','2024-01-15 04:00:00',40,688,2,'AK 475100','AK 546566'),
+(NULL,'2023-08-14 06:00:00','2023-08-20 03:00:00',50,489,3,'AK 655647','AK 001215'),
+(NULL,'2023-09-09 09:00:00','2023-09-16 04:00:00',62,235,3,'AK 753537','AK 047587'),
+(NULL,'2023-10-22 01:00:00','2023-10-28 12:00:00',100,896,3,'AK 655647','AK 479890'),
+(NULL,'2024-04-13 17:00:00','2024-04-18 04:00:00',34,1500,3,'AK 753537','AK 001215'),
+(NULL,'2024-02-05 08:00:00','2024-02-15 04:00:00',32,189,3,'AK 655647','AK 047587'),
+(NULL,'2024-01-01 13:00:00','2024-01-10 03:00:00',45,500,4,'AK 000223','AK 603243'),
+(NULL,'2024-03-15 18:00:00','2024-03-20 04:00:00',60,200,4,'AK 311253','AK 890247'),
+(NULL,'2023-09-03 14:00:00','2023-09-08 12:00:00',36,400,4,'AK 000223','AK 454798'),
+(NULL,'2023-10-17 08:00:00','2023-10-25 04:00:00',25,950,4,'AK 311253','AK 603243'),
+(NULL,'2023-08-05 09:00:00','2023-05-10 04:00:00',70,150,4,'AK 000223','AK 890247');
+
+
+INSERT INTO event VALUES
+(41,'2024-05-01 21:00:00','2024-05-01 01:00:00','dfgdgdfg'),
+(41,'2024-04-25 18:00:00','2024-04-25 22:00:00','fghffhffh'),
+(42,'2024-02-05 21:00:00','2024-02-05 01:00:00','fghffhfhfh'),
+(43,'2024-12-28 20:00:00','2024-12-28 00:00:00','dggddgdg'),
+(44,'2023-11-20 19:00:00','2023-11-20 21:00:00','fhfffsra'),
+(45,'2023-12-20 18:00:00','2023-12-20 20:00:00','dggddgdgd'),
+(46,'2024-12-27 19:00:00','2024-12-27 22:00:00','dggdgddqaq'),
+(47,'2023-10-15 19:00:00','2023-10-15 22:00:00','dgewwarea'),
+(48,'2023-10-26 20:00:00','2023-10-26 00:00:00','xvzxzafs'),
+(49,'2023-11-29 20:00:00','2023-11-29 23:00:00','bcbczsdwa'),
+(49,'2023-11-20 20:00:00','2023-11-20 00:00:00','ryrtetwtwt'),
+(50,'2024-01-06 21:00:00','2024-01-06 01:00:00','wrwrwrsrwr'),
+(51,'2023-08-10 20:00:00','2023-08-10 23:00:00','eyettestst'),
+(52,'2023-09-01 17:00:00','2023-09-01 20:00:00','opippjibnp'),
+(53,'2023-10-17 19:00:00','2023-10-17 22:00:00','opipiipipp'),
+(54,'2024-04-10 20:00:00','2024-04-10 01:00:00','wrarawrarraw'),
+(55,'2024-02-02 21:00:00','2024-02-02 23:00:00','uooovcxgdzx'),
+(56,'2024-12-20 17:00:00','2024-12-20 20:00:00','ryyryseetst'),
+(57,'2024-03-10 18:00:00','2024-03-10 21:00:00','cvxvxvxcvx'),
+(58,'2023-08-28 19:00:00','2023-08-28 22:00:00','tetsettstee'),
+(59,'2023-10-12 22:00:00','2023-10-12 02:00:00','bbxbcxxbxb'),
+(60,'2023-08-02 21:00:00','2023-08-02 00:00:00','tertststset');
+
+INSERT INTO reservation VALUES
+(41,18,'Turner','Schmidt','ADULT'),
+(41,12,'Lennon','Hester','ADULT'),
+(41,2,'Brooklyn','Banks','ADULT'),
+(41,3,'Maleah','Conrad','MINOR'),
+(42,1,'Natalia','Schmidt','ADULT'),
+(42,5,'Ross','Ayers','MINOR'),
+(42,15,'Antoine','Nicholson','ADULT'),
+(42,18,'Rylie','Luna','MINOR'),
+
+(43,18,'Ramon','Huff','ADULT'),
+(43,12,'Celia','Nunez','ADULT'),
+(44,2,'Tabitha','Ho','ADULT'),
+(44,3,'Dexter','Vargas','MINOR'),
+(45,1,'Jimmy','Deleon','ADULT'),
+(45,5,'Micah','Mcintosh','MINOR'),
+(46,15,'Lisa','Rodriguez','ADULT'),
+(46,18,'Lizbeth','Morton','MINOR'),
+
+(47,18,'Johnny','Santiago','ADULT'),
+(47,12,'Jaron','Rowe','ADULT'),
+(48,2,'William','Ho','ADULT'),
+(48,3,'William','Vargas','MINOR'),
+(49,1,'Reid','Lang','ADULT'),
+(49,5,'Easton','Torres','MINOR'),
+(50,15,'Krista','Romero','ADULT'),
+(50,18,'Arthur','Mcknight','MINOR'),
+
+(51,18,'Aldo','Clarke','ADULT'),
+(51,12,'Jan','Dillon','ADULT'),
+(51,2,'Brayan','Krueger','ADULT'),
+(51,3,'Zavier','Anthony','MINOR'),
+(52,1,'Alfredo','Greene','ADULT'),
+(52,5,'Kamila','Prince','MINOR'),
+(52,15,'Reese','Brennan','ADULT'),
+(52,18,'Jaylynn','Erickson','MINOR'),
+
+(53,18,'Madalynn','Black','ADULT'),
+(53,12,'Celia','Lunf','ADULT'),
+(54,2,'Tabera','Jo','ADULT'),
+(54,3,'Dipo','Hunf','MINOR'),
+(55,1,'John','Dalida','ADULT'),
+(55,5,'Miler','Marey','MINOR'),
+(56,15,'Lopo','Ropolo','ADULT'),
+(56,18,'Miley','Matrop','MINOR'),
+
+(57,18,'Jack','Bass','ADULT'),
+(57,12,'Jacob','Rolo','ADULT'),
+(58,2,'Wilhem','Woodsen','ADULT'),
+(58,3,'Nick','Johnas','MINOR'),
+(59,1,'Rei','Loustro','ADULT'),
+(59,5,'Blue','Turner','MINOR'),
+(60,15,'Kim','Jay','ADULT'),
+(60,18,'Arthuro','Mckmerfy','MINOR');
+
+
+INSERT INTO destination VALUES
+(NULL,'Ibiza','sdfsdsd','ABROAD','Spanish'),
+(NULL,'Arta','hfhfhf','LOCAL','Greek'),
+(NULL,'Madrid','tuyuyu','ABROAD','Spanish'),
+(NULL,'Kastoria','gjjgjj','LOCAL','Greek'),
+(NULL,'Mosxa','gjjgjyyiyiyij','ABROAD','Russian'),
+(NULL,'Pekino','gjjgjj','ABROAD','Chinese'),
+(NULL,'Milan','esretetet','ABROAD','Italian'),
+(NULL,'Paris','gjjgjsrrsrsj','ABROAD','French'),
+(NULL,'Rome','etftyyy4eyy','ABROAD','Italian'),
+(NULL,'Florence','pououoyy','ABROAD','Italian'),
+(NULL,'New York','ftyfufuu','ABROAD','London'),
+(NULL,'Amsterdam','o8o8oouou','ABROAD','Dutch'),
+(NULL,'Santorini','uyidrdghfjsy','LOCAL','Greek'),
+(NULL,'Astypalaia','sfgbgfjtur','LOCAL','Greek'),
+(NULL,'Thessaloniki','utyutututu','LOCAL','Greek'),
+(NULL,'Xalkidiki','yyyetteteiyi','LOCAL','Greek'),
+(NULL,'Leonidio','yyi7iogcszwai','LOCAL','Greek'),
+(NULL,'Kalavryta','y6iiseawghnjf','LOCAL','Greek'),
+(NULL,'Elatia','er4tsfdgjh','LOCAL','Greek'),
+(NULL,'Trikala','opygfsgsegg','LOCAL','Greek');
+
+(NULL,'Ramon','Huff','ADULT'),
+(NULL,'Celia','Nunez','ADULT'),
+(NULL,'Tabitha','Ho','ADULT'),
+(NULL,'Dexter','Vargas','MINOR'),
+(NULL,'Jimmy','Deleon','ADULT'),
+(NULL,'Micah','Mcintosh','MINOR'),
+(NULL,'Lisa','Rodriguez','ADULT'),
+(NULL,'Lizbeth','Morton','MINOR'),
+
+(NULL,'Johnny','Santiago','ADULT'),
+(NULL,'Jaron','Rowe','ADULT'),
+(NULL,'William','Ho','ADULT'),
+(NULL,'William','Vargas','MINOR'),
+(NULL,'Reid','Lang','ADULT'),
+
+
+(49,5,'Easton','Torres','MINOR'),
+(50,15,'Krista','Romero','ADULT'),
+(50,18,'Arthur','Mcknight','MINOR'),
+
+(51,18,'Aldo','Clarke','ADULT'),
+(51,12,'Jan','Dillon','ADULT'),
+(51,2,'Brayan','Krueger','ADULT'),
+(51,3,'Zavier','Anthony','MINOR'),
+(52,1,'Alfredo','Greene','ADULT'),
+(52,5,'Kamila','Prince','MINOR'),
+(52,15,'Reese','Brennan','ADULT'),
+(52,18,'Jaylynn','Erickson','MINOR'),
+
+(53,18,'Madalynn','Black','ADULT'),
+(53,12,'Celia','Lunf','ADULT'),
+(54,2,'Tabera','Jo','ADULT'),
+(54,3,'Dipo','Hunf','MINOR'),
+(55,1,'John','Dalida','ADULT'),
+(55,5,'Miler','Marey','MINOR'),
+(56,15,'Lopo','Ropolo','ADULT'),
+(56,18,'Miley','Matrop','MINOR'),
+
+(57,18,'Jack','Bass','ADULT'),
+(57,12,'Jacob','Rolo','ADULT'),
+(58,2,'Wilhem','Woodsen','ADULT'),
+(58,3,'Nick','Johnas','MINOR'),
+(59,1,'Rei','Loustro','ADULT'),
+(59,5,'Blue','Turner','MINOR'),
+(60,15,'Kim','Jay','ADULT'),
+(60,18,'Arthuro','Mckmerfy','MINOR');
+
+
+
+
+
+

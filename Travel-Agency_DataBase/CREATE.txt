@@ -1,0 +1,230 @@
+CREATE DATABASE travel_agency;
+
+
+.branch
+CREATE TABLE branch
+(
+br_code INT(11) NOT NULL AUTO_INCREMENT,
+br_street VARCHAR(30),
+br_num INT(4),
+br_city VARCHAR(30),
+PRIMARY KEY (br_code)
+);
+
+
+.phones
+CREATE TABLE phones
+(
+ph_br_code INT(11) NOT NULL,
+ph_number CHAR(10) NOT NULL,
+
+PRIMARY KEY (ph_br_code,ph_number),
+FOREIGN KEY (ph_br_code) REFERENCES branch(br_code)
+ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+.worker
+CREATE TABLE worker
+(
+wrk_AT CHAR(10) NOT NULL,
+wrk_name VARCHAR(20),
+wrk_lname VARCHAR(20),
+wrk_salary FLOAT(7,2),
+wrk_br_code INT(11),
+wrk_status ENUM('DRIVER','GUIDE','ADMIN'),
+
+PRIMARY KEY (wrk_AT),
+FOREIGN KEY (wrk_br_code) REFERENCES branch(br_code)
+ ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+.admin
+CREATE TABLE admin
+(
+adm_AT CHAR(10) NOT NULL,
+adm_type ENUM('LOGISTICS','ADMINISTRATIVE','ACCOUNTING'),
+adm_diploma VARCHAR(200),
+
+PRIMARY KEY (adm_AT),
+FOREIGN KEY (adm_AT) REFERENCES worker(wrk_AT)
+ ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+.manages
+CREATE TABLE manages
+(
+mng_adm_AT CHAR(10) NOT NULL,
+mng_br_code INT(11) NOT NULL,
+
+PRIMARY KEY (mng_adm_AT,mng_br_code),
+FOREIGN KEY (mng_adm_AT) REFERENCES admin(adm_AT)
+ON DELETE CASCADE ON UPDATE CASCADE,
+FOREIGN KEY (mng_br_code) REFERENCES branch(br_code)
+ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+.driver
+CREATE TABLE driver
+(
+drv_AT CHAR(10) NOT NULL,
+drv_license ENUM('A','B','C','D'),
+drv_route ENUM('LOCAL','ABROAD'),
+drv_experience TINYINT(4),
+
+PRIMARY KEY (drv_AT),
+FOREIGN KEY (drv_AT) REFERENCES worker(wrk_AT)
+ ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+
+.IT
+CREATE TABLE IT
+(
+IT_AT CHAR(10) NOT NULL,
+IT_password CHAR(10) DEFAULT 'password' NOT NULL,
+IT_start_date DATE NOT NULL,
+IT_end_date DATE,
+PRIMARY KEY (IT_AT),
+FOREIGN KEY (IT_AT) REFERENCES worker(wrk_AT)
+ ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+
+.guide
+CREATE TABLE guide
+(
+gui_AT CHAR(10),
+gui_cv TEXT,
+
+PRIMARY KEY (gui_AT), 
+FOREIGN KEY (gui_AT) REFERENCES worker(wrk_AT)
+ ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+.languages
+CREATE TABLE languages
+(
+lng_gui_AT CHAR(10) NOT NULL,
+lng_language VARCHAR(30) NOT NULL,
+PRIMARY KEY (lng_gui_AT,lng_language),
+FOREIGN KEY (lng_gui_AT) REFERENCES guide(gui_AT)
+ ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+
+.trip
+CREATE TABLE trip
+(
+tr_id INT(11) NOT NULL AUTO_INCREMENT,
+tr_departure DATETIME,
+tr_return DATETIME,
+tr_maxseats TINYINT(4),
+tr_cost FLOAT(7,2),
+tr_br_code INT(11),
+tr_gui_AT CHAR(10), 
+tr_drv_AT CHAR(10),
+
+PRIMARY KEY (tr_id),
+FOREIGN KEY(tr_br_code) REFERENCES branch(br_code)
+ ON DELETE CASCADE ON UPDATE CASCADE,
+FOREIGN KEY(tr_gui_AT) REFERENCES guide(gui_AT)
+ ON DELETE CASCADE ON UPDATE CASCADE,
+FOREIGN KEY(tr_drv_AT) REFERENCES driver(drv_AT)
+ ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+
+.event
+CREATE TABLE event
+(
+ev_tr_id INT(11),
+ev_start DATETIME,
+ev_end   DATETIME,
+ev_descr TEXT,
+
+PRIMARY KEY (ev_tr_id,ev_start),
+FOREIGN KEY (ev_tr_id) REFERENCES trip(tr_id)
+ ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+
+.reservation
+CREATE TABLE reservatrion
+(
+res_tr_id INT(11) NOT NULL AUTO_INCREMENT,
+res_seatnum TINYINT(4),
+res_name VARCHAR(20),
+res_lastname VARCHAR(20),
+res_isadult ENUM('ADULT','MINOR'),
+
+PRIMARY KEY (res_tr_id,res_seatnum),
+FOREIGN KEY (res_tr_id) REFERENCES trip(trip_id)
+ ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+
+.travel_to
+CREATE TABLE travel_to
+(
+to_tr_id INT(11), 
+to_dst_id INT(11), 
+to_arrival DATETIME,
+to_departure DATETIME,
+
+PRIMARY KEY (to_tr_id,to_dst_id),
+FOREIGN KEY (to_tr_id) REFERENCES trip(trip_id)
+ ON DELETE CASCADE ON UPDATE CASCADE,
+FOREIGN KEY (to_dst_id) REFERENCES destination(dst_id)
+ ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+.destination
+CREATE TABLE destination
+(
+dst_id INT(11) NOT NULL AUTO_INCREMENT,
+dst_name VARCHAR(50),
+dst_descr TEXT,
+dst_rtype ENUM ('LOCAL','ABROAD'),
+dst_language VARCHAR(30),
+dst_location INT(11),
+
+PRIMARY KEY (dst_id),
+FOREIGN KEY (dst_location) REFERENCES destination(dst_id)
+ ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+.offers
+CREATE TABLE offers
+(
+of_id INT(11) NOT NULL AUTO_INCREMENT,
+of_startdate DATE,
+of_enddate DATE,
+of_cost FLOAT(7,2),
+of_dst_id INT(11),
+of_br_code INT(11),
+
+PRIMARY KEY (of_id),
+FOREIGN KEY (of_dst_id) REFERENCES destination(dst_id)
+ ON DELETE CASCADE ON UPDATE CASCADE,
+FOREIGN KEY (of_br_code) REFERENCES branch(br_code)
+ ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+.reservation_offers
+CREATE TABLE reservation_offers
+(
+res_of_id INT(11) NOT NULL AUTO_INCREMENT,
+res_lastname VARCHAR(20),
+res_name VARCHAR(20),
+offer_id INT(11),
+deposit FLOAT(7,2),
+
+PRIMARY KEY (res_of_id),
+FOREIGN KEY (offer_id) REFERENCES offers(of_id)
+ ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+
+
+
+
