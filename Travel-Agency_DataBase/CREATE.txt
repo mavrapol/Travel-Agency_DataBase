@@ -81,7 +81,7 @@ FOREIGN KEY (drv_AT) REFERENCES worker(wrk_AT)
 CREATE TABLE IT
 (
 IT_AT CHAR(10) NOT NULL,
-IT_password CHAR(10) DEFAULT 'password' NOT NULL,
+IT_password CHAR(10) DEFAULT 'password',
 IT_start_date DATE NOT NULL,
 IT_end_date DATE,
 PRIMARY KEY (IT_AT),
@@ -149,7 +149,7 @@ FOREIGN KEY (ev_tr_id) REFERENCES trip(tr_id)
 
 
 .reservation
-CREATE TABLE reservatrion
+CREATE TABLE reservation
 (
 res_tr_id INT(11) NOT NULL AUTO_INCREMENT,
 res_seatnum TINYINT(4),

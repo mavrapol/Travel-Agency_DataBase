@@ -1,0 +1,92 @@
+3.1.3.1
+
+DELIMITER $
+ CREATE PROCEDURE insert_driver
+ ( IN m_drv_AT CHAR(10),
+   IN m_wrk_name VARCHAR(20),
+   IN m_wrk_lname VARCHAR(20),
+   IN m_wrk_salary FLOAT(7,2),
+   IN m_drv_route ENUM('LOCAL','ABROAD'),
+   IN m_drv_experience TINYINT(4)
+ )
+ 
+ BEGIN
+   DECLARE min_branch_code INT(11);
+
+SELECT br_code
+INTO min_branch_code
+FROM
+(
+ SELECT b.br_code,count(d.drv_AT) AS 'Number of drivers'
+ FROM branch AS b
+ INNER JOIN worker AS w ON b.br_code=w.wrk_br_code
+ INNER JOIN driver AS d ON w.wrk_AT=d.drv_AT
+ GROUP BY b.br_code
+ LIMIT 1
+) AS subquery;
+
+INSERT INTO worker(wrk_AT,wrk_name,wrk_lname,wrk_salary,wrk_br_code,wrk_status)
+VALUES (m_drv_AT,m_wrk_name,m_wrk_lname,m_wrk_salary,min_branch_code,'DRIVER');
+
+INSERT INTO driver(drv_AT,drv_route,drv_experience)
+VALUES (m_drv_AT,m_drv_route,m_drv_experience);
+
+END $
+DELIMITER;
+
+
+3.1.3.2
+
+DELIMITER $
+
+CREATE PROCEDURE show_trip_details
+(
+   IN date_upper_limit DATETIME,
+   IN date_lower_limit DATETIME
+)
+    
+BEGIN
+    
+SELECT tr_cost
+FROM trip
+WHERE
+     
+tr_departure >= date_lower_limit
+AND tr_departure <= date_upper_limit;
+
+END $
+
+DELIMITER ;
+
+
+
+tr_br_code=s_branch_code 
+
+IN s_branch_code INT(11),
+
+
+INNER JOIN branch ON tr_br_code=br_code
+tr_br_code=s_br_code
+
+
+
+ 
+ BEGIN
+ empty seats
+ 
+SELECT tr_cost,tr_maxseats,count(res_tr_id),empty_seats,wrk_name,wrk_lname,tr_departure,tr_return
+
+select tr_id from trip where s_date1
+
+
+CREATE PROCEDURE show_trips
+    ( IN s_br_code INT(11),
+     IN date_upper_limit DATE,
+     IN date_lower_limit DATE
+    )
+    
+     select tr_id,tr_cost
+     from trip
+     inner join branch on tr_br_code=br_code
+     where date_lower_limit<=tr_departure<date_upper_limit;
+

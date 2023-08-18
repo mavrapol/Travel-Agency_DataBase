@@ -7,7 +7,7 @@ db_config = {
     'user': 'root',
     'password': '',
     'host': 'localhost',
-    'database': 'dbproject'
+    'database': 'travel_agency'
 }
 
 # Connect to the database
@@ -15,7 +15,7 @@ db_connection = mysql.connector.connect(**db_config)
 cursor = db_connection.cursor()
 
 # Number of records you want to insert
-num_records = 60000
+num_records = 20000
 
 fake = Faker()
 
@@ -26,7 +26,7 @@ for _ in range(num_records):
     deposit = random.randint(50, 200)
 
     # SQL query to insert data
-    insert_query = "INSERT INTO test1 (name, lastname, deposit, id) VALUES (%s, %s, %s, 1)"
+    insert_query = "INSERT INTO reservation_offers (res_name, res_lastname, deposit, offer_id) VALUES (%s, %s, %s, 3)"
     values = (first_name, last_name, deposit)
 
     cursor.execute(insert_query, values)

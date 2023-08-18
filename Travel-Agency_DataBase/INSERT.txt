@@ -1,4 +1,4 @@
-INSERT INTO branch VALUES
+caINSERT INTO branch VALUES
 (0,'Korinthou','8','Patras'),
 (0,'Ermou','25','Athens'),
 (0,'Kanari','68','Trikala')
@@ -59,7 +59,18 @@ INSERT INTO worker VALUES
 ('AK 311253','Harper','Walters',1200,4,'GUIDE'),
 ('AK 603243','Augustus','Kent',1300,4,'DRIVER'),
 ('AK 890247','Gaige','Compton',1300,4,'DRIVER'),
-('AK 454798','Gaige','Compton',1300,4,'DRIVER');
+('AK 454798','Gaige','Compton',1300,4,'DRIVER'),
+
+
+('AK 575757','Neit','Camper',1300,4,'DRIVER'),
+('AK 586957','Nathaniel','Trouper',1300,3,'DRIVER'),
+('AK 696969','Tsak','Boris',1300,4,'DRIVER'),
+
+('AK 151515','Harry','Styles',1300,2,'DRIVER'),
+('AK 979797','John','Jovi',1300,2,'DRIVER'),
+('AK 464646','Alex','Turner',1300,2,'DRIVER'),
+('AK 837373','Axl','Rose',1300,2,'DRIVER');
+
 
 INSERT INTO admin VALUES
 ('AK 653215','LOGISTICS','ADMINISTRATIVE SCIENCE AND TECHNOLOGY'),
@@ -100,7 +111,19 @@ INSERT INTO driver VALUES
 
 ('AK 603243','B','ABROAD',14),
 ('AK 890247','B','LOCAL',4),
-('AK 454798','A','ABROAD',36);
+('AK 454798','A','ABROAD',36),
+
+('AK 575757','A','ABROAD',6),
+('AK 586957','B','ABROAD',3),
+('AK 696969','C','LOCAL',4),
+
+('AK 151515','A','LOCAL',20),
+('AK 979797','B','LOCAL',24),
+('AK 464646','C','ABROAD',1),
+('AK 837373','B','ABROAD',13);
+
+
+
 
 INSERT INTO IT (IT_AT,IT_start_date,IT_end_date) VALUES
 ('AK 569994','2017-01-26','2020-02-06'),
@@ -259,74 +282,74 @@ INSERT INTO reservation VALUES
 (60,18,'Arthuro','Mckmerfy','MINOR');
 
 
-INSERT INTO destination (dst_id, dst_name, dst_descr, dst_rtype, dst_language) VALUES
-(NULL,'Spain','sdfsdsd','ABROAD','Spanish'),
-(NULL,'Greece','hfhfhf','LOCAL','Greek'),
-(NULL,'Italy','tuyuyu','ABROAD','Italian'),
-(NULL,'Engalnd','gjiyiyij','ABROAD','English'),
-(NULL,'Russia','sdfsdsd','ABROAD','Russian'),
-(NULL,'China','hfhfhf','LOCAL','Chinese'),
-(NULL,'United States','tuyuyu','ABROAD','English'),
-(NULL,'Netherlands','gjiyiyij','ABROAD','Dutch');
+INSERT INTO destination VALUES
+(NULL,'Ibiza','sdfsdsd','ABROAD','Spanish'),
+(NULL,'Arta','hfhfhf','LOCAL','Greek'),
+(NULL,'Madrid','tuyuyu','ABROAD','Spanish'),
+(NULL,'Kastoria','gjjgjj','LOCAL','Greek'),
+(NULL,'Mosxa','gjjgjyyiyiyij','ABROAD','Russian'),
+(NULL,'Pekino','gjjgjj','ABROAD','Chinese'),
+(NULL,'Milan','esretetet','ABROAD','Italian'),
+(NULL,'Paris','gjjgjsrrsrsj','ABROAD','French'),
+(NULL,'Rome','etftyyy4eyy','ABROAD','Italian'),
+(NULL,'Florence','pououoyy','ABROAD','Italian'),
+(NULL,'New York','ftyfufuu','ABROAD','London'),
+(NULL,'Amsterdam','o8o8oouou','ABROAD','Dutch'),
+(NULL,'Santorini','uyidrdghfjsy','LOCAL','Greek'),
+(NULL,'Astypalaia','sfgbgfjtur','LOCAL','Greek'),
+(NULL,'Thessaloniki','utyutututu','LOCAL','Greek'),
+(NULL,'Xalkidiki','yyyetteteiyi','LOCAL','Greek'),
+(NULL,'Leonidio','yyi7iogcszwai','LOCAL','Greek'),
+(NULL,'Kalavryta','y6iiseawghnjf','LOCAL','Greek'),
+(NULL,'Elatia','er4tsfdgjh','LOCAL','Greek'),
+(NULL,'Trikala','opygfsgsegg','LOCAL','Greek');
+
+(NULL,'Ramon','Huff','ADULT'),
+(NULL,'Celia','Nunez','ADULT'),
+(NULL,'Tabitha','Ho','ADULT'),
+(NULL,'Dexter','Vargas','MINOR'),
+(NULL,'Jimmy','Deleon','ADULT'),
+(NULL,'Micah','Mcintosh','MINOR'),
+(NULL,'Lisa','Rodriguez','ADULT'),
+(NULL,'Lizbeth','Morton','MINOR'),
+
+(NULL,'Johnny','Santiago','ADULT'),
+(NULL,'Jaron','Rowe','ADULT'),
+(NULL,'William','Ho','ADULT'),
+(NULL,'William','Vargas','MINOR'),
+(NULL,'Reid','Lang','ADULT'),
 
 
-INSERT INTO destination  VALUES
-(NULL,'Ibiza','sdfsdsd','ABROAD','Spanish','1'),
-(NULL,'Arta','hfhfhf','LOCAL','Greek','2'),
-(NULL,'Madrid','tuyuyu','ABROAD','Spanish','1'),
-(NULL,'Kastoria','gjjgjj','LOCAL','Greek','2'),
-(NULL,'Mosxa','gjjgjyyiyiyij','ABROAD','Russian','5'),
-(NULL,'Pekino','gjjgjj','ABROAD','Chinese','6'),
-(NULL,'Milan','esretetet','ABROAD','Italian','3'),
-(NULL,'Valladolid','gjjgjsrrsrsj','ABROAD','Spanish','1'),
-(NULL,'Rome','etftyyy4eyy','ABROAD','Italian','3'),
-(NULL,'Florence','pououoyy','ABROAD','Italian','3'),
-(NULL,'New York','ftyfufuu','ABROAD','English','7'),
-(NULL,'Amsterdam','o8o8oouou','ABROAD','Dutch','8'),
-(NULL,'Santorini','uyidrdghfjsy','LOCAL','Greek','2'),
-(NULL,'Astypalaia','sfgbgfjtur','LOCAL','Greek','2'),
-(NULL,'Thessaloniki','utyutututu','LOCAL','Greek','2'),
-(NULL,'Xalkidiki','yyyetteteiyi','LOCAL','Greek','2'),
-(NULL,'Leonidio','yyi7iogcszwai','LOCAL','Greek','2'),
-(NULL,'Kalavryta','y6iiseawghnjf','LOCAL','Greek','2'),
-(NULL,'Elatia','er4tsfdgjh','LOCAL','Greek','2'),
-(NULL,'London','y6iitututut','ABROAD','English','4'),
-(NULL,'Trikala','opygfsgsegg','LOCAL','Greek','2');
+(49,5,'Easton','Torres','MINOR'),
+(50,15,'Krista','Romero','ADULT'),
+(50,18,'Arthur','Mcknight','MINOR'),
 
-INSERT INTO travel_to  VALUES
+(51,18,'Aldo','Clarke','ADULT'),
+(51,12,'Jan','Dillon','ADULT'),
+(51,2,'Brayan','Krueger','ADULT'),
+(51,3,'Zavier','Anthony','MINOR'),
+(52,1,'Alfredo','Greene','ADULT'),
+(52,5,'Kamila','Prince','MINOR'),
+(52,15,'Reese','Brennan','ADULT'),
+(52,18,'Jaylynn','Erickson','MINOR'),
 
-(41,18,'2024-05-05 09:00:00','2024-05-09 22:00:00'),
-(42,26,'2024-02-10 10:00:00','2024-02-11 23:00:00'),
-(43,12,'2024-01-02 15:00:00','2024-01-09 07:00:00'),
-(44,20,'2023-11-25 14:00:00','2023-11-29 22:00:00'),
-(45,13,'2023-12-25 17:00:00','2024-01-02 17:00:00'),
-(46,14,'2024-01-05 06:00:00','2024-01-09 20:00:00'),
-(47,11,'2023-10-21 12:00:00','2023-10-28 22:00:00'),
-(48,21,'2023-11-01 11:00:00','2023-11-08 10:00:00'),
-(49,22,'2023-12-05 15:00:00','2023-12-09 18:00:00'),
-(50,24,'2024-01-11 02:00:00','2024-01-14 22:00:00'),
-(51,29,'2023-08-14 09:00:00','2023-08-19 22:00:00'),
-(52,28,'2023-09-09 14:00:00','2023-09-15 00:00:00'),
-(53,27,'2023-10-22 04:00:00','2023-10-28 09:00:00'),
-(54,9, '2024-04-13 22:00:00','2024-04-17 23:00:00'),
-(55,25,'2024-02-05 11:00:00','2024-02-14 23:00:00'),
-(56,10,'2024-01-01 14:00:00','2024-01-09 23:00:00'),
-(57,13,'2024-03-16 03:00:00','2024-03-19 19:00:00'),
-(58,15,'2023-09-03 17:00:00','2023-09-08 09:00:00'),
-(59,16,'2023-10-17 12:00:00','2023-10-24 21:00:00'),
-(60,17,'2023-08-05 13:00:00','2023-08-09 22:00:00');
+(53,18,'Madalynn','Black','ADULT'),
+(53,12,'Celia','Lunf','ADULT'),
+(54,2,'Tabera','Jo','ADULT'),
+(54,3,'Dipo','Hunf','MINOR'),
+(55,1,'John','Dalida','ADULT'),
+(55,5,'Miler','Marey','MINOR'),
+(56,15,'Lopo','Ropolo','ADULT'),
+(56,18,'Miley','Matrop','MINOR'),
 
-
-INSERT INTO offers  VALUES
-
-(NULL,'2024-06-02','2024-12-03','380','1','1'),
-(NULL,'2024-05-21','2024-12-28','650','29','2'),
-(NULL,'2024-03-26','2024-10-21','870','18','4');
-
-
-
-
-
+(57,18,'Jack','Bass','ADULT'),
+(57,12,'Jacob','Rolo','ADULT'),
+(58,2,'Wilhem','Woodsen','ADULT'),
+(58,3,'Nick','Johnas','MINOR'),
+(59,1,'Rei','Loustro','ADULT'),
+(59,5,'Blue','Turner','MINOR'),
+(60,15,'Kim','Jay','ADULT'),
+(60,18,'Arthuro','Mckmerfy','MINOR');
 
 
 
