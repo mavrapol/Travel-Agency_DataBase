@@ -128,6 +128,7 @@ DELIMITER ;
 
 
 3.1.3.4
+
 A)
 
 DELIMITER $
@@ -145,24 +146,42 @@ WHERE deposit BETWEEN min_deposit AND max_deposit;
 END $
 DELIMITER ;
 
+
+
 B)
+
+
 DELIMITER $
-CREATE PROCEDURE find_name_reservations
+CREATE PROCEDURE test
 ( IN find_lastname VARCHAR(20)
 )
 
 BEGIN
 
 
-SELECT res_name,res_lastname,count(res_name),offer_id
+SELECT res_name, res_lastname, COUNT(res_name),offer_id
 FROM reservation_offers
 WHERE res_lastname=find_lastname
-GROUP BY offer_id; 
+GROUP BY res_name, res_lastname,offer_id;
+
 
 
 
 END $
+
 DELIMITER ;
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
