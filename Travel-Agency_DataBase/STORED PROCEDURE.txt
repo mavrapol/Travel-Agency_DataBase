@@ -40,53 +40,83 @@ DELIMITER;
 DELIMITER $
 
 CREATE PROCEDURE show_trip_details
-(
-   IN date_upper_limit DATETIME,
-   IN date_lower_limit DATETIME
+(  IN s_branch_code INT(11),
+   IN upperlimit_date DATE,
+   IN lowerlimit_date DATE
 )
     
 BEGIN
     
-SELECT tr_cost
-FROM trip
-WHERE
+ SELECT t.tr_cost,
+        t.tr_maxseats,
+        count(r.res_tr_id) AS 'Total_resesrvations',
+        t.tr_maxseats-count(r.res_tr_id) AS 'Empty_seats',
+        wd.wrk_name  AS 'Driver_name',
+        wd.wrk_lname AS 'Driver_lastaname',
+        wg.wrk_name  AS 'Guide_name',
+        wg.wrk_lname AS 'Guide_lastaname',
+        t.tr_departure AS 'Departure_date',
+        t.tr_return AS 'Return_date'
+FROM trip AS t
+LEFT JOIN reservation AS r ON r.res_tr_id=t.tr_id
+LEFT JOIN driver AS d ON t.tr_drv_AT=d.drv_AT 
+LEFT JOIN worker AS wd ON d.drv_AT=wd.wrk_AT
+LEFT JOIN guide AS g ON t.tr_gui_AT=g.gui_AT  
+LEFT JOIN worker AS wg ON g.gui_AT=wg.wrk_AT
+
+WHERE 
+    t.tr_br_code=s_branch_code
+AND t.tr_departure BETWEEN lowerlimit_date AND upperlimit_date
+GROUP BY t.tr_id;
+         
+
+END $
+DELIMITER ;
+
+
+3.1.3.3
+
+DELIMITER $
+
+CREATE PROCEDURE delete_admin
+
+( 
+  IN admin_name VARCHAR(20),
+  IN admin_lname VARCHAR(20)
+)
+
+BEGIN 
+
+DECLARE worker_id CHAR(10);
+DECLARE admin_type ENUM('LOGISTICS','ADMINISTRATIVE','ACCOUNTING');
+
+SELECT wrk_AT,adm_type
+INTO worker_id,admin_type
+FROM worker 
+INNER JOIN admin ON adm_AT=wrk_AT
+WHERE wrk_name=admin_name AND wrk_lname=admin_lname;
+
+IF (adm_type != 'ADMINISTRATIVE') THEN
+  
+      DELETE FROM worker WHERE wrk_name=admin_name AND wrk_lname=admin_lname;
+      DELETE FROM admin  WHERE adm_AT=worker_id; 
+
+ELSE 
+     SELECT mng_adm_AT 
+     FROM manages
+     WHERE mng_adm_AT=worker_id;
+   
+         IF (mng_adm_AT IS NULL) THEN 
+   
+         DELETE FROM worker WHERE wrk_AT=mng_adm_AT;
+         DELETE FROM admin  WHERE adm_AT=mng_adm_AT;
+   
+         ELSE SELECT 'Deletion is not allowed.This person is managing a branch'
      
-tr_departure >= date_lower_limit
-AND tr_departure <= date_upper_limit;
+         END IF;
+END IF;
+
 
 END $
 
 DELIMITER ;
-
-
-
-tr_br_code=s_branch_code 
-
-IN s_branch_code INT(11),
-
-
-INNER JOIN branch ON tr_br_code=br_code
-tr_br_code=s_br_code
-
-
-
- 
- BEGIN
- empty seats
- 
-SELECT tr_cost,tr_maxseats,count(res_tr_id),empty_seats,wrk_name,wrk_lname,tr_departure,tr_return
-
-select tr_id from trip where s_date1
-
-
-CREATE PROCEDURE show_trips
-    ( IN s_br_code INT(11),
-     IN date_upper_limit DATE,
-     IN date_lower_limit DATE
-    )
-    
-     select tr_id,tr_cost
-     from trip
-     inner join branch on tr_br_code=br_code
-     where date_lower_limit<=tr_departure<date_upper_limit;
-
