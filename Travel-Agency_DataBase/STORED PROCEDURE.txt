@@ -89,6 +89,7 @@ BEGIN
 
 DECLARE worker_id CHAR(10);
 DECLARE admin_type ENUM('LOGISTICS','ADMINISTRATIVE','ACCOUNTING');
+DECLARE manager_id CHAR(10);
 
 SELECT wrk_AT,adm_type
 INTO worker_id,admin_type
@@ -96,23 +97,21 @@ FROM worker
 INNER JOIN admin ON adm_AT=wrk_AT
 WHERE wrk_name=admin_name AND wrk_lname=admin_lname;
 
-IF (adm_type != 'ADMINISTRATIVE') THEN
-  
+IF (admin_type != 'ADMINISTRATIVE') THEN  
       DELETE FROM worker WHERE wrk_name=admin_name AND wrk_lname=admin_lname;
       DELETE FROM admin  WHERE adm_AT=worker_id; 
 
 ELSE 
-     SELECT mng_adm_AT 
+     SELECT mng_adm_AT
+     INTO manager_id 
      FROM manages
      WHERE mng_adm_AT=worker_id;
    
-         IF (mng_adm_AT IS NULL) THEN 
-   
-         DELETE FROM worker WHERE wrk_AT=mng_adm_AT;
-         DELETE FROM admin  WHERE adm_AT=mng_adm_AT;
+         IF (manager_id IS NULL) THEN
+              DELETE FROM worker WHERE wrk_AT=manager_ID;
+              DELETE FROM admin  WHERE adm_AT=manager_ID;
    
          ELSE SELECT 'Deletion is not allowed.This person is managing a branch'
-     
          END IF;
 END IF;
 
@@ -120,3 +119,4 @@ END IF;
 END $
 
 DELIMITER ;
+
