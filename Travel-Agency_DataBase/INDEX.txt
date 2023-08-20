@@ -1,0 +1,12 @@
+Α)
+CREATE INDEX idx_deposit 
+ON reservation_offers(deposit,offer_id,res_name,res_lastname);
+
+
+
+Β)
+CREATE INDEX idx_lastname 
+ON reservation_offers (res_lastname,res_name,offer_id);
+
+
+

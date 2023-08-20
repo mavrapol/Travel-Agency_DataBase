@@ -152,7 +152,7 @@ B)
 
 
 DELIMITER $
-CREATE PROCEDURE test
+CREATE PROCEDURE find_name_reservations
 ( IN find_lastname VARCHAR(20)
 )
 
