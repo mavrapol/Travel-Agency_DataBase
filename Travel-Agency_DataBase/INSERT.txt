@@ -71,6 +71,11 @@ INSERT INTO worker VALUES
 ('AK 464646','Alex','Turner',1300,2,'DRIVER'),
 ('AK 837373','Axl','Rose',1300,2,'DRIVER');
 
+...........FOR THE IT..................
+INSERT INTO worker (wrk_AT,wrk_name,wrk_lname,wrk_salary,wrk_status) VALUES
+('AK 555555','Maria', 'Papadopoulou','1500','IT'),
+('AK 444444','George','Karameros','1500','IT');
+
 
 INSERT INTO admin VALUES
 ('AK 653215','LOGISTICS','ADMINISTRATIVE SCIENCE AND TECHNOLOGY'),

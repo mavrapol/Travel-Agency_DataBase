@@ -31,7 +31,7 @@ wrk_name VARCHAR(20),
 wrk_lname VARCHAR(20),
 wrk_salary FLOAT(7,2),
 wrk_br_code INT(11),
-wrk_status ENUM('DRIVER','GUIDE','ADMIN'),
+wrk_status ENUM('DRIVER','GUIDE','ADMIN','IT'),
 
 PRIMARY KEY (wrk_AT),
 FOREIGN KEY (wrk_br_code) REFERENCES branch(br_code)
@@ -224,7 +224,22 @@ FOREIGN KEY (offer_id) REFERENCES offers(of_id)
  ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+.log
+CREATE TABLE log
+(
+log_id INT(11) NOT NULL AUTO_INCREMENT,
+log_action ENUM('INSERT','DELETE','MODIFY'),
+action_date DATETIME,
+user_id CHAR(10) NOT NULL,
+user_lastname VARCHAR(20) NOT NULL,
+action_table ENUM('trip','event','reservation','travel_to','destination'),
 
 
+PRIMARY KEY (log_id),
+FOREIGN KEY (user_id) REFERENCES IT(IT_AT)
+ ON DELETE CASCADE ON UPDATE CASCADE,
+FOREIGN KEY (user_lastname) REFERENCES worker(wrk_lname)
+ ON DELETE CASCADE ON UPDATE CASCADE
+);
 
 
