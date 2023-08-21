@@ -1,0 +1,26 @@
+DELIMITER $
+CREATE TRIGGER tr_date
+BEFORE UPDATE ON trip 
+FOR EACH ROW
+
+BEGIN
+DECLARE counter_res;
+
+IF  NEW.tr_departure <> OLD.tr_departure
+ OR NEW.tr_return <> OLD.tr_return
+ OR NEW.tr_cost <> OLD.tr_cost THEN
+
+ SELECT count(res_tr_id)
+ INTO counter_res 
+ FROM reservation
+ WHERE res_tr_id=OLD.tr_id;
+
+ IF counter_res > 0 THEN
+ SIGNAL SQLSTATE VALUE '45000'
+ SET MESSAGE_TEXT = 'This trip has reservations and cannot change the departure date,return date or cost!';
+ END IF;
+
+END IF;
+
+END $
+DELIMITER ;

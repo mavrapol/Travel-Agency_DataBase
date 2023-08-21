@@ -1,0 +1,14 @@
+DELIMITER $
+CREATE TRIGGER tr_salary
+BEFORE UPDATE ON worker
+FOR EACH ROW
+BEGIN
+
+IF NEW.wrk_salary<OLD.wrk_salary THEN 
+ SIGNAL SQLSTATE VALUE '45000'
+ SET MESSAGE_TEXT = 'You can't  decrease the empolyee's salary!';
+ END IF;
+
+END $
+
+DELIMITER ;
