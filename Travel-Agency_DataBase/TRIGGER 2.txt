@@ -4,7 +4,7 @@ BEFORE UPDATE ON trip
 FOR EACH ROW
 
 BEGIN
-DECLARE counter_res;
+DECLARE counter_res INT;
 
 IF  NEW.tr_departure <> OLD.tr_departure
  OR NEW.tr_return <> OLD.tr_return
