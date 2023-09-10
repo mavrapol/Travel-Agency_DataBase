@@ -1,0 +1,104 @@
+3.1.4.1
+.update
+
+...........trip..................
+DELIMITER $
+CREATE TRIGGER log_up_trip
+AFTER UPDATE ON trip
+FOR EACH ROW
+
+BEGIN
+
+DECLARE l_id INT(11);
+DECLARE l_lname VARCHAR(20);
+
+SELECT MAX(user_id) INTO l_id FROM user;
+SELECT user_lastname INTO l_lname FROM user WHERE user_id=l_id;  
+INSERT INTO log VALUES (0,'UPDATE',NOW(),l_lname,'trip');
+
+END $
+
+DELIMITER ;
+
+
+...........reservation..................
+DELIMITER $
+CREATE TRIGGER log_up_reservation
+AFTER UPDATE ON reservation
+FOR EACH ROW
+
+BEGIN
+
+DECLARE l_id INT(11);
+DECLARE l_lname VARCHAR(20);
+
+SELECT MAX(user_id) INTO l_id FROM user;
+SELECT user_lastname INTO l_lname FROM user WHERE user_id=l_id;  
+INSERT INTO log VALUES (0,'UPDATE',NOW(),l_lname,'reservation');
+
+END $
+
+DELIMITER ;
+
+
+...........event..................
+DELIMITER $
+CREATE TRIGGER log_up_event
+AFTER UPDATE ON event
+FOR EACH ROW
+
+BEGIN
+
+DECLARE l_id INT(11);
+DECLARE l_lname VARCHAR(20);
+
+SELECT MAX(user_id) INTO l_id FROM user;
+SELECT user_lastname INTO l_lname FROM user WHERE user_id=l_id;  
+INSERT INTO log VALUES (0,'UPDATE',NOW(),l_lname,'event');
+
+END $
+
+DELIMITER ;
+
+
+
+...........travel_to..................
+DELIMITER $
+CREATE TRIGGER log_up_travel_to
+AFTER UPDATE ON travel_to
+FOR EACH ROW
+
+BEGIN
+
+DECLARE l_id INT(11);
+DECLARE l_lname VARCHAR(20);
+
+SELECT MAX(user_id) INTO l_id FROM user;
+SELECT user_lastname INTO l_lname FROM user WHERE user_id=l_id;  
+INSERT INTO log VALUES (0,'UPDATE',NOW(),l_lname,'travel_to');
+
+END $
+
+DELIMITER ;
+
+
+
+...........destination..................
+DELIMITER $
+CREATE TRIGGER log_up_destination
+AFTER UPDATE ON destination
+FOR EACH ROW
+
+BEGIN
+
+DECLARE l_id INT(11);
+DECLARE l_lname VARCHAR(20);
+
+SELECT MAX(user_id) INTO l_id FROM user;
+SELECT user_lastname INTO l_lname FROM user WHERE user_id=l_id;  
+INSERT INTO log VALUES (0,'UPDATE',NOW(),l_lname,'destination');
+
+END $
+
+DELIMITER ;
+

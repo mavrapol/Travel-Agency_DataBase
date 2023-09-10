@@ -1,7 +1,7 @@
 3.1.4.1
 .insert
 
-...........trip...........
+...........trip..................
 DELIMITER $
 CREATE TRIGGER tr_log_trip
 AFTER INSERT ON trip
@@ -9,17 +9,97 @@ FOR EACH ROW
 
 BEGIN
 
-SELECT   
-INSERT INTO log VALUES (0,'INSERT',NOW(),NEW.user_id,,'trip');
+DECLARE l_id INT(11);
+DECLARE l_lname VARCHAR(20);
+
+SELECT MAX(user_id) INTO l_id FROM user;
+SELECT user_lastname INTO l_lname FROM user WHERE user_id=l_id;  
+INSERT INTO log VALUES (0,'INSERT',NOW(),l_lname,'trip');
 
 END $
 
 DELIMITER ;
 
 
+...........reservation..........
+
+DELIMITER $
+CREATE TRIGGER tr_log_reservation
+AFTER INSERT ON reservation
+FOR EACH ROW
+
+BEGIN
+
+DECLARE l_id INT(11);
+DECLARE l_lname VARCHAR(20);
+
+SELECT MAX(user_id) INTO l_id FROM user;
+SELECT user_lastname INTO l_lname FROM user WHERE user_id=l_id;  
+INSERT INTO log VALUES (0,'INSERT',NOW(),l_lname,'resrvation');
+
+END $
+
+DELIMITER ;
 
 
+...........event..........
+
+DELIMITER $
+CREATE TRIGGER tr_log_event
+AFTER INSERT ON event
+FOR EACH ROW
+
+BEGIN
+
+DECLARE l_id INT(11);
+DECLARE l_lname VARCHAR(20);
+
+SELECT MAX(user_id) INTO l_id FROM user;
+SELECT user_lastname INTO l_lname FROM user WHERE user_id=l_id;  
+INSERT INTO log VALUES (0,'INSERT',NOW(),l_lname,'event');
+
+END $
+
+DELIMITER ;
 
 
+...........travel_to..........
 
-,reservation,event,travel_to,destination 
+DELIMITER $
+CREATE TRIGGER tr_log_travel_to
+AFTER INSERT ON travel_to
+FOR EACH ROW
+
+BEGIN
+
+DECLARE l_id INT(11);
+DECLARE l_lname VARCHAR(20);
+
+SELECT MAX(user_id) INTO l_id FROM user;
+SELECT user_lastname INTO l_lname FROM user WHERE user_id=l_id;  
+INSERT INTO log VALUES (0,'INSERT',NOW(),l_lname,'travel_to');
+
+END $
+
+DELIMITER ;
+
+...........destination..........
+
+DELIMITER $
+CREATE TRIGGER tr_log_destination
+AFTER INSERT ON destination
+FOR EACH ROW
+
+BEGIN
+
+DECLARE l_id INT(11);
+DECLARE l_lname VARCHAR(20);
+
+SELECT MAX(user_id) INTO l_id FROM user;
+SELECT user_lastname INTO l_lname FROM user WHERE user_id=l_id;  
+INSERT INTO log VALUES (0,'INSERT',NOW(),l_lname,'destination');
+
+END $
+
+DELIMITER ;
+

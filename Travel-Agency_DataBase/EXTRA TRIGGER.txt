@@ -5,15 +5,15 @@ FOR EACH ROW
 
 BEGIN
 
-DECLARE total_res;
-DECLARE total_seats;
+DECLARE total_res INT;
+DECLARE total_seats INT;
 
 
 SELECT tr_maxseats,count(res_tr_id)
 INTO total_seats,total_res 
 FROM reservation
 INNER JOIN trip ON res_tr_id=tr_id
-WHERE res_tr_id=OLD.tr_id;
+WHERE res_tr_id=NEW.res_tr_id;
 
 IF total_res = total_seats THEN 
  SIGNAL SQLSTATE VALUE '45000'
