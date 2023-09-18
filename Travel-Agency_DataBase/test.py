@@ -2,7 +2,7 @@ import mysql.connector
 from faker import Faker
 import random
 
-# Replace these with your actual database credentials
+# DB 
 db_config = {
     'user': 'root',
     'password': '',
@@ -10,13 +10,14 @@ db_config = {
     'database': 'travel_agency'
 }
 
-# Connect to the database
+# DB connection
 db_connection = mysql.connector.connect(**db_config)
 cursor = db_connection.cursor()
 
-# Number of records you want to insert
+# Number of records 
 num_records = 20000
 
+# create a Faker object for fake data
 fake = Faker()
 
 # Generate and insert random data
@@ -28,9 +29,11 @@ for _ in range(num_records):
     # SQL query to insert data
     insert_query = "INSERT INTO reservation_offers (res_name, res_lastname, deposit, offer_id) VALUES (%s, %s, %s, 3)"
     values = (first_name, last_name, deposit)
-
+     
+    #execute Query
     cursor.execute(insert_query, values)
     db_connection.commit()
+
 
 print(f"{num_records} records inserted.")
 

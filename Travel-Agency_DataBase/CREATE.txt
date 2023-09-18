@@ -241,7 +241,7 @@ FOREIGN KEY (user_lastname) REFERENCES worker(wrk_lname)
 CREATE TABLE log
 (
 log_id INT(11) NOT NULL AUTO_INCREMENT,
-log_action ENUM('INSERT','DELETE','MODIFY'),
+log_action ENUM('INSERT','DELETE','UPDATE'),
 action_date TIMESTAMP,
 action_lastname VARCHAR(20) NOT NULL,
 action_table ENUM('trip','event','reservation','travel_to','destination'),

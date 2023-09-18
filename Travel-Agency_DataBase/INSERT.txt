@@ -1,4 +1,4 @@
-caINSERT INTO branch VALUES
+INSERT INTO branch VALUES
 (0,'Korinthou','8','Patras'),
 (0,'Ermou','25','Athens'),
 (0,'Kanari','68','Trikala')
@@ -69,12 +69,10 @@ INSERT INTO worker VALUES
 ('AK 151515','Harry','Styles',1300,2,'DRIVER'),
 ('AK 979797','John','Jovi',1300,2,'DRIVER'),
 ('AK 464646','Alex','Turner',1300,2,'DRIVER'),
-('AK 837373','Axl','Rose',1300,2,'DRIVER');
+('AK 837373','Axl','Rose',1300,2,'DRIVER'),
 
-...........FOR THE IT..................
-INSERT INTO worker (wrk_AT,wrk_name,wrk_lname,wrk_salary,wrk_status) VALUES
-('AK 555555','Maria', 'Papadopoulou','1500','IT'),
-('AK 444444','George','Karameros','1500','IT');
+('AK 555555','Maria', 'Papadopoulou','1500','IT');
+
 
 
 INSERT INTO admin VALUES
@@ -151,8 +149,8 @@ INSERT INTO IT (IT_AT,IT_start_date,IT_end_date) VALUES
 ('AK 589304','2020-11-15','2022-08-24');
 
 INSERT INTO IT (IT_AT,IT_password,IT_start_date) VALUES
-('AK 555555','kwdikos1','2022-01-06'),
-('AK 444444','kwdikos2','2023-04-14');
+('AK 555555','kwdikos1','2022-01-06');
+
 
 
 INSERT INTO guide VALUES
@@ -204,8 +202,8 @@ INSERT INTO trip VALUES
 (NULL,'2024-03-15 18:00:00','2024-03-20 04:00:00',60,200,4,'AK 311253','AK 890247'),
 (NULL,'2023-09-03 14:00:00','2023-09-08 12:00:00',36,400,4,'AK 000223','AK 454798'),
 (NULL,'2023-10-17 08:00:00','2023-10-25 04:00:00',25,950,4,'AK 311253','AK 603243'),
-(NULL,'2023-08-05 09:00:00','2023-05-10 04:00:00',70,150,4,'AK 000223','AK 890247');
-
+(NULL,'2023-08-05 09:00:00','2023-05-10 04:00:00',70,150,4,'AK 000223','AK 890247'),
+(NULL,'2024-06-10 02:00:00','2024-06-18 01:00:00',2,682,1,'AK 541369','AK 151617');
 
 INSERT INTO event VALUES
 (41,'2024-05-01 21:00:00','2024-05-01 01:00:00','dfgdgdfg'),
@@ -230,6 +228,8 @@ INSERT INTO event VALUES
 (58,'2023-08-28 19:00:00','2023-08-28 22:00:00','tetsettstee'),
 (59,'2023-10-12 22:00:00','2023-10-12 02:00:00','bbxbcxxbxb'),
 (60,'2023-08-02 21:00:00','2023-08-02 00:00:00','tertststset');
+
+
 
 INSERT INTO reservation VALUES
 (41,18,'Turner','Schmidt','ADULT'),
@@ -286,6 +286,9 @@ INSERT INTO reservation VALUES
 (60,15,'Kim','Jay','ADULT'),
 (60,18,'Arthuro','Mckmerfy','MINOR');
 
+(61,1,'Kostas','Karatheodoris','ADULT'),
+(61,2,'Katerina','Sioula','ADULT');
+
 
 INSERT INTO destination VALUES
 (NULL,'Ibiza','sdfsdsd','ABROAD','Spanish'),
@@ -309,52 +312,31 @@ INSERT INTO destination VALUES
 (NULL,'Elatia','er4tsfdgjh','LOCAL','Greek'),
 (NULL,'Trikala','opygfsgsegg','LOCAL','Greek');
 
-(NULL,'Ramon','Huff','ADULT'),
-(NULL,'Celia','Nunez','ADULT'),
-(NULL,'Tabitha','Ho','ADULT'),
-(NULL,'Dexter','Vargas','MINOR'),
-(NULL,'Jimmy','Deleon','ADULT'),
-(NULL,'Micah','Mcintosh','MINOR'),
-(NULL,'Lisa','Rodriguez','ADULT'),
-(NULL,'Lizbeth','Morton','MINOR'),
 
-(NULL,'Johnny','Santiago','ADULT'),
-(NULL,'Jaron','Rowe','ADULT'),
-(NULL,'William','Ho','ADULT'),
-(NULL,'William','Vargas','MINOR'),
-(NULL,'Reid','Lang','ADULT'),
+INSERT INTO travel_to VALUES
 
+(41,18,'2024-05-05 09:00:00','2024-05-09 22:00:00'),
+(42,26,'2024-02-10 10:00:00','2024-02-11 23:00:00'),
+(43,12,'2024-01-02 15:00:00','2024-01-09 07:00:00'),
+(44,20,'2023-11-25 14:00:00','2023-11-29 22:00:00'),
+(45,13,'2023-12-25 17:00:00','2024-01-02 17:00:00'),
+(46,14,'2024-01-05 06:00:00','2024-01-09 20:00:00'),
+(47,11,'2023-10-21 12:00:00','2023-10-28 22:00:00'),
+(48,21,'2023-11-01 11:00:00','2023-11-08 10:00:00'),
+(49,22,'2023-12-05 15:00:00','2023-12-09 18:00:00'),
+(50,24,'2024-01-11 02:00:00','2024-01-14 22:00:00'),
+(51,29,'2023-08-14 09:00:00','2023-08-19 22:00:00'),
+(52,28,'2023-09-09 14:00:00','2023-09-15 00:00:00'),
+(53,27,'2023-10-22 04:00:00','2023-10-28 09:00:00'),
+(54, 9,'2024-04-13 22:00:00','2024-04-17 23:00:00'),
+(55,25,'2024-02-05 11:00:00','2024-02-14 23:00:00'),
+(56,10,'2024-01-01 14:00:00','2024-01-09 23:00:00'),
+(57,13,'2024-03-16 03:00:00','2024-03-19 19:00:00'),
+(58,15,'2023-09-03 17:00:00','2023-09-08 09:00:00'),
+(59,16,'2023-10-17 12:00:00','2023-10-24 21:00:00'),
+(60,17,'2023-08-05 13:00:00','2023-08-09 22:00:00'),
+(61,18,'2024-06-11 06:00:00','2024-06-17 20:00:00');
 
-(49,5,'Easton','Torres','MINOR'),
-(50,15,'Krista','Romero','ADULT'),
-(50,18,'Arthur','Mcknight','MINOR'),
-
-(51,18,'Aldo','Clarke','ADULT'),
-(51,12,'Jan','Dillon','ADULT'),
-(51,2,'Brayan','Krueger','ADULT'),
-(51,3,'Zavier','Anthony','MINOR'),
-(52,1,'Alfredo','Greene','ADULT'),
-(52,5,'Kamila','Prince','MINOR'),
-(52,15,'Reese','Brennan','ADULT'),
-(52,18,'Jaylynn','Erickson','MINOR'),
-
-(53,18,'Madalynn','Black','ADULT'),
-(53,12,'Celia','Lunf','ADULT'),
-(54,2,'Tabera','Jo','ADULT'),
-(54,3,'Dipo','Hunf','MINOR'),
-(55,1,'John','Dalida','ADULT'),
-(55,5,'Miler','Marey','MINOR'),
-(56,15,'Lopo','Ropolo','ADULT'),
-(56,18,'Miley','Matrop','MINOR'),
-
-(57,18,'Jack','Bass','ADULT'),
-(57,12,'Jacob','Rolo','ADULT'),
-(58,2,'Wilhem','Woodsen','ADULT'),
-(58,3,'Nick','Johnas','MINOR'),
-(59,1,'Rei','Loustro','ADULT'),
-(59,5,'Blue','Turner','MINOR'),
-(60,15,'Kim','Jay','ADULT'),
-(60,18,'Arthuro','Mckmerfy','MINOR');
 
 
 

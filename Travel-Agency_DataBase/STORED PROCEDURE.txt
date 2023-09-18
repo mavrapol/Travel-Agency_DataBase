@@ -5,6 +5,7 @@ DELIMITER $
  ( IN m_drv_AT CHAR(10),
    IN m_wrk_name VARCHAR(20),
    IN m_wrk_lname VARCHAR(20),
+   IN m_drv_license ENUM('A','B','C','D'),
    IN m_wrk_salary FLOAT(7,2),
    IN m_drv_route ENUM('LOCAL','ABROAD'),
    IN m_drv_experience TINYINT(4)
@@ -22,17 +23,18 @@ FROM
  INNER JOIN worker AS w ON b.br_code=w.wrk_br_code
  INNER JOIN driver AS d ON w.wrk_AT=d.drv_AT
  GROUP BY b.br_code
+ ORDER BY count(d.drv_AT) ASC
  LIMIT 1
 ) AS subquery;
 
 INSERT INTO worker(wrk_AT,wrk_name,wrk_lname,wrk_salary,wrk_br_code,wrk_status)
 VALUES (m_drv_AT,m_wrk_name,m_wrk_lname,m_wrk_salary,min_branch_code,'DRIVER');
 
-INSERT INTO driver(drv_AT,drv_route,drv_experience)
-VALUES (m_drv_AT,m_drv_route,m_drv_experience);
+INSERT INTO driver(drv_AT,drv_license,drv_route,drv_experience)
+VALUES (m_drv_AT,m_drv_license,m_drv_route,m_drv_experience);
 
 END $
-DELIMITER;
+DELIMITER ;
 
 
 3.1.3.2
@@ -77,47 +79,50 @@ DELIMITER ;
 3.1.3.3
 
 DELIMITER $
-
-CREATE PROCEDURE delete_admin
-
-( 
-  IN admin_name VARCHAR(20),
-  IN admin_lname VARCHAR(20)
-)
-
-BEGIN 
-
-DECLARE worker_id CHAR(10);
-DECLARE admin_type ENUM('LOGISTICS','ADMINISTRATIVE','ACCOUNTING');
-
-SELECT wrk_AT,adm_type
-INTO worker_id,admin_type
-FROM worker 
-INNER JOIN admin ON adm_AT=wrk_AT
-WHERE wrk_name=admin_name AND wrk_lname=admin_lname;
-
-IF (adm_type != 'ADMINISTRATIVE') THEN
-  
-      DELETE FROM worker WHERE wrk_name=admin_name AND wrk_lname=admin_lname;
-      DELETE FROM admin  WHERE adm_AT=worker_id; 
-
-ELSE 
-     SELECT mng_adm_AT 
-     FROM manages
-     WHERE mng_adm_AT=worker_id;
+ CREATE PROCEDURE delete_admin
+    
+     (
+       IN admin_name VARCHAR(20),
+       IN admin_lname VARCHAR(20),
+       OUT message VARCHAR(255)
+     )
+    
+     BEGIN
+    
+     DECLARE worker_id CHAR(10);
+     DECLARE admin_type ENUM('LOGISTICS','ADMINISTRATIVE','ACCOUNTING');
+     DECLARE manager_id CHAR(10);
+    
+     SELECT wrk_AT,adm_type
+     INTO worker_id,admin_type
+    FROM worker
+    INNER JOIN admin ON adm_AT=wrk_AT
+    WHERE wrk_name=admin_name AND wrk_lname=admin_lname;
    
-         IF (mng_adm_AT IS NULL) THEN 
-   
+    IF (admin_type != 'ADMINISTRATIVE') THEN
+    
+          DELETE FROM worker WHERE wrk_name=admin_name AND wrk_lname=admin_lname;
+          DELETE FROM admin  WHERE adm_AT=worker_id;
+         SET message = 'Deletion successful from both worker and admin tables';
+     ELSE
+         SELECT mng_adm_AT INTO manager_id
+         FROM manages
+         WHERE mng_adm_AT=worker_id;
+
+         IF (manager_id IS NULL) THEN
+ 
          DELETE FROM worker WHERE wrk_AT=mng_adm_AT;
-         DELETE FROM admin  WHERE adm_AT=mng_adm_AT;
-   
-         ELSE SELECT 'Deletion is not allowed.This person is managing a branch'
-     
-         END IF;
-END IF;
+          DELETE FROM admin  WHERE adm_AT=mng_adm_AT;
+
+        ELSE SET message= 'Deletion is not allowed.This person is managing a branch';
+
+      END IF;
+ END IF;
 
 
 END $
+
+
 
 DELIMITER ;
 
